@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title></title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
-  </head>
-  <body>
-	<script rel="script" src="./index.js"></script>
-  </body>
+    <title>Matt Browne Phase 1 Project</title>
+</head>
+<body>
+    <h1>Cocktail Recipe Finder</h1>
+    <form action="" method="get">
+        <label for="spirit">Add your favorite spirit</label>
+        <input type="text" id="spirit" name="spirit"><br><br>
+        <p>Choose your cocktail strength</p>
+        <input type="radio" id="cocktail-strong" name="cocktail-strength" value="Spirit Forward">
+        <label for="cocktail-strength">Spirit Forward</label><br>
+        <input type="radio" id="cocktail-balanced" name="cocktail-strength" value="Balanced">
+        <label for="cocktail-strength">Balanced</label><br>
+        <input type="radio" id="cocktail-light" name="cocktail-strength" value="Refreshing">
+        <label for="cocktail-strength">Refreshing</label><br><br>      
+        <input type="submit" value="Get a recipe!">
+    </form>
+    <div id="display-recipe">
+
+    </div>
+    <div id="saved-recipes" style="display: none">
+        <h2>Your Favorites: </h2>
+        <ul id="saved-recipes-list">
+
+        </ul>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+</body>
 </html>
