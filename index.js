@@ -1,13 +1,28 @@
 // EL 1 - user hit a submit button to get a drink recipe
-
-document.querySelector('form').addEventListener('submit', fetchRecipe);
+const form = document.querySelector('form')
+const recipeDisplay = document.querySelector("#display-recipe")
+const formInput = document.querySelector("#spirit")
+form.addEventListener('submit', fetchRecipe);
 
 function fetchRecipe(e) {
+    recipeDisplay.innerHTML = ''
     e.preventDefault();
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin")
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + formInput.value)
     .then(res => res.json())
-    .then(data => {console.log(data.drinks[Math.floor(Math.random() * 100)].strDrink)})
+    .then(displayRecipes)
 }
+
+function displayRecipes(data) {
+    for (i=0; i<6; i++) {
+        let drinkInfo = data.drinks[Math.floor(Math.random() * data.drinks.length)]
+        console.log(drinkInfo)
+        let drinkName = document.createElement('p')
+        drinkName.innerHTML = `<h1>${drinkInfo.strDrink}</h1><h2 id="liked">👍</h2><img src="${drinkInfo.strDrinkThumb + '/preview'}"/>`
+        recipeDisplay.append(drinkName)
+    }
+    form.reset()
+}
+
 
 // grab submit button and save to variable
 // add 'submit' event listener to submit button
