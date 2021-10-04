@@ -1,51 +1,54 @@
-// EL 1 - user hit a submit button to get a drink recipe
-// const form = document.querySelector('form')
-const button = document.getElementById('button')
-const recipeDisplay = document.querySelector("#display-recipe")
-// const formInput = document.querySelector("#spirit")
-const buttonInput = document.querySelector("#spirit-list")
-// form.addEventListener('submit', fetchRecipeForm);
-button.addEventListener('click', fetchRecipe)
+document.addEventListener('DOMContentLoaded', runPage)
+function runPage() {
+    const recipeDisplay = document.querySelector("#display-recipe")
+    const likedDisplay = document.querySelector("#saved-recipes")
+    
+    const button = document.getElementById('button')
+    const buttonInput = document.querySelector("#spirit-list")
+    button.addEventListener('click', fetchRecipe)
 
 
-// function fetchRecipeForm(e) {
-//     recipeDisplay.innerHTML = ''
-//     e.preventDefault();
-//     fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + formInput.value)
-//     .then(res => res.json())
-//     .then(displayRecipes)
-// }
+    // const form = document.querySelector('form')
+    // const formInput = document.querySelector("#spirit")
+    // form.addEventListener('submit', fetchRecipeForm);
 
-function fetchRecipe(e) {
-    recipeDisplay.innerHTML = ''
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + buttonInput.value)
-    .then(res => res.json())
-    .then(displayRecipes)
-    console.log(buttonInput)
-}
+    // function fetchRecipeForm(e) {
+    //     recipeDisplay.innerHTML = ''
+    //     e.preventDefault();
+    //     fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + formInput.value)
+    //     .then(res => res.json())
+    //     .then(displayRecipes)
+    // }
 
-function displayRecipes(data) {
-    for (i=0; i<6; i++) {
-        let drinkInfo = data.drinks[Math.floor(Math.random() * data.drinks.length)]
-        console.log(drinkInfo)
-        let drinkName = document.createElement('p')
-        drinkName.innerHTML = `<h2>${drinkInfo.strDrink}&nbsp</h2><img src="${drinkInfo.strDrinkThumb + '/preview'}"/><h3 id="liked">👍</h3>`
-        recipeDisplay.append(drinkName)
+    function fetchRecipe(e) {
+        recipeDisplay.innerHTML = ''
+        fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + buttonInput.value)
+        .then(res => res.json())
+        .then(displayRecipes)
+        console.log(buttonInput)
     }
-    form.reset()
+
+    function displayRecipes(data) {
+            let drinkInfo = data.drinks[Math.floor(Math.random() * data.drinks.length)]
+            let drinkName = document.createElement('p')
+            drinkName.innerHTML = `<h2>${drinkInfo.strDrink}&nbsp</h2><img src="${drinkInfo.strDrinkThumb + '/preview'}"/><br><br><button id="liked">👍</button>`
+            recipeDisplay.append(drinkName)
+            const thumbsUp = document.getElementById('liked')
+            thumbsUp.addEventListener('click', (e) => {
+                likedDisplay.style.display= "inline"
+                let likedDrink = document.createElement('li')
+                likedDrink.innerText = `${drinkInfo.strDrink} `
+                likedDisplay.append(likedDrink)
+                // let del = document.createElement('button')
+                // del.textContent = "X"
+                // del.style.color = "Red"
+                // del.style.fontSize = "medium"
+                // likedDrink.appendChild(del)
+                // del.addEventListener('click', (e) => {
+                //     e.target.parentNode.remove()
+                // })
+        })
+    }
 }
 
-
-// grab submit button and save to variable
-// add 'submit' event listener to submit button
-// fetch from API
-
-
-// Display recipe on screen with a thumbs up button to save as favorite
-
-// EL 2 - user click thumbs up to save recipe
-
-// Saved recipe ius added to favorites list below with an X button to delete
-
-// EL 3 - user can click the X to delete from favorites
 

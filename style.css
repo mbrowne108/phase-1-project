@@ -1,22 +1,20 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 1200px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 600px;
+    background-image: linear-gradient(to left, white, #f1f1f1) ;
   }
   
-  /* Style the header */
   #header {
-    background-color: #f1f1f1;
+    background-image: linear-gradient(to right, #85FFBD, #FFFB7D);
     padding: 10px;
     text-align: center;
     font-size: 35px;
   }
   
   #display-recipe {
-    display: grid;
+    background-image: linear-gradient(to bottom right, #85FFBD, #FFFB7D);
+    padding: 40px;
+    margin: auto;
+    width: 50%;
     text-align: center;
-    background-color: #f1f1f1;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    /* grid-column-gap: 140px;
-    grid-row-gap: 1px; */
-    }
+  }
