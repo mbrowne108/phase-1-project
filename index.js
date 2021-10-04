@@ -1,15 +1,27 @@
 // EL 1 - user hit a submit button to get a drink recipe
-const form = document.querySelector('form')
+// const form = document.querySelector('form')
+const button = document.getElementById('button')
 const recipeDisplay = document.querySelector("#display-recipe")
-const formInput = document.querySelector("#spirit")
-form.addEventListener('submit', fetchRecipe);
+// const formInput = document.querySelector("#spirit")
+const buttonInput = document.querySelector("#spirit-list")
+// form.addEventListener('submit', fetchRecipeForm);
+button.addEventListener('click', fetchRecipe)
+
+
+// function fetchRecipeForm(e) {
+//     recipeDisplay.innerHTML = ''
+//     e.preventDefault();
+//     fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + formInput.value)
+//     .then(res => res.json())
+//     .then(displayRecipes)
+// }
 
 function fetchRecipe(e) {
     recipeDisplay.innerHTML = ''
-    e.preventDefault();
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + formInput.value)
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + buttonInput.value)
     .then(res => res.json())
     .then(displayRecipes)
+    console.log(buttonInput)
 }
 
 function displayRecipes(data) {
