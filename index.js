@@ -29,7 +29,7 @@ function displayRecipes(data) {
         let drinkInfo = data.drinks[Math.floor(Math.random() * data.drinks.length)]
         console.log(drinkInfo)
         let drinkName = document.createElement('p')
-        drinkName.innerHTML = `<h1>${drinkInfo.strDrink}</h1><h2 id="liked">👍</h2><img src="${drinkInfo.strDrinkThumb + '/preview'}"/>`
+        drinkName.innerHTML = `<h2>${drinkInfo.strDrink}&nbsp</h2><img src="${drinkInfo.strDrinkThumb + '/preview'}"/><h3 id="liked">👍</h3>`
         recipeDisplay.append(drinkName)
     }
     form.reset()
