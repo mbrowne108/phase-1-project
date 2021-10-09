@@ -21,12 +21,11 @@ function runPage() {
             recipeDisplay.append(drinkName)
             const thumbsUp = document.getElementById('liked')
             thumbsUp.addEventListener('click', () => {
-                likedDisplay.style.display = "inline"
+                likedDisplay.style.display = ""
                 const likedDrink = document.createElement('li')
-                likedDrink.innerText = `${drinkInfo.strDrink} `
+                likedDrink.innerText = `${drinkInfo.strDrink}`
                 likedDisplay.append(likedDrink)
         })
     }
 }
-
 

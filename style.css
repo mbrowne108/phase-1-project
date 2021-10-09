@@ -5,6 +5,7 @@ body {
   }
   
   #header {
+    box-shadow: 0px 10px 14px -7px #000000;
     background-image: linear-gradient(to right, #85FFBD, #FFFB7D);
     padding: 10px;
     text-align: center;
@@ -12,9 +13,40 @@ body {
   }
   
   #display-recipe {
+    box-shadow: 0px 10px 14px -7px #000000;
     background-image: linear-gradient(to bottom right, #85FFBD, #FFFB7D);
-    padding: 40px;
+    padding: 1rem;
     margin: auto;
-    width: 50%;
+    width: 20rem;
+    height: 21rem;
+    text-align: center;
+  }
+
+  #button {
+    box-shadow: 0px 10px 14px -7px #000000;
+    background:linear-gradient(to bottom, #85FFBD 5%, #FFFB7D 100%);
+    background-color:#85FFBD;
+    border-radius:15px;
+    display:inline-block;
+    cursor:pointer;
+    color:#000000;
+    font-size:12px;
+    font-family: 'Trebuchet MS';
+    padding:5px 5px;
+    text-shadow:0px 1px 0px #3d768a;
+  }
+
+  #saved-recipes {
+    box-shadow: 0px 10px 14px -7px #000000;
+    background-image: linear-gradient(to bottom right, #FFFB7D, #85FFBD);
+    padding-left: 2rem;
+    padding-top: 5px;
+    padding-bottom: 1rem;
+    margin: auto;
+    width: 15rem;
+    text-align: left;
+  }
+
+  #saved-recipes > h2 {
     text-align: center;
   }
